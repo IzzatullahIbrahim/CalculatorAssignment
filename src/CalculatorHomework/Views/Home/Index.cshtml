@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="CalculatorHomework">
+<head>
+    <title>Calculator</title>
+    <link href="~/bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/css/site.css" rel="stylesheet" />
+
+    <script src="~/bower_components/jquery/dist/jquery.js"></script>
+    <script src="~/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+</head>
+<body ng-controller="CalculatorController as c">
+    <h1>Calculator</h1>
+    <div class="calculator">
+        <div>
+            <input ng-model="c.display" />
+        </div>
+        <div class="row">
+            <button ng-click="c.numButton(1)" class="btn btn-success">1</button>
+            <button ng-click="c.numButton(2)" class="btn btn-success">2</button>
+            <button ng-click="c.numButton(3)" class="btn btn-success">3</button>
+            <button ng-click="c.numButton(0)" class="btn btn-success">0</button>
+        </div>
+        <div class="row">
+            <button ng-click="c.numButton(4)" class="btn btn-success">4</button>
+            <button ng-click="c.numButton(5)" class="btn btn-success">5</button>
+            <button ng-click="c.numButton(6)" class="btn btn-success">6</button>
+            <button class="btn btn-success">CE</button>
+        </div>
+        <div class="row">
+            <button ng-click="c.numButton(7)" class="btn btn-success">7</button>
+            <button ng-click="c.numButton(8)" class="btn btn-success">8</button>
+            <button ng-click="c.numButton(9)" class="btn btn-success">9</button>
+            <button ng-click="c.calculate()" class="btn btn-success">=</button>
+        </div>
+        <div class="row">
+            <button ng-click="c.operatorButton('+')" class="btn btn-success">+</button>
+            <button ng-click="c.operatorButton('-')" class="btn btn-success">-</button>
+            <button ng-click="c.operatorButton('x')" class="btn btn-success">x</button>
+            <button ng-click="c.operatorButton('/')" class="btn btn-success">/</button>
+        </div>
+    </div>
+    
+    <script src="~/bower_components/angular/angular.min.js"></script>
+    <script src="~/ngApp/app.js"></script>
+</body>
+</html>

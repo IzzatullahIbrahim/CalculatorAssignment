@@ -1,0 +1,38 @@
+body {
+    margin: 20px;
+}
+
+.calculator {
+    border: 1px solid #b3b3b3;
+    max-width: 320px;
+    background-color: #b3b3b3;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+input {
+    box-sizing: border-box;
+    width: 100%;
+    text-align:right;
+    padding: 10px;
+    margin-bottom : 5px;
+}
+
+button {
+    width: 24%;
+    padding: 10px;
+    margin: 1.5px;
+    border-radius: 5px;
+    float:left;
+}
+
+.row {
+    margin: 0px;
+    overflow:auto;
+    padding-bottom: 5px;
+}
+
+.btn.btn-success {
+    background-color: #808080;
+    border-color:#808080;
+}
