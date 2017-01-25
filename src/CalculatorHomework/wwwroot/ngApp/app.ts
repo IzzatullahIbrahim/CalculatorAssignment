@@ -4,57 +4,58 @@ namespace CalculatorHomework {
     class CalculatorController {
         public operationList = [''];
         public index = 0;
-        public display = 0;
-        public result = 0;
+        public display = '';
+        public result = '';
+        public i = 0;
 
         public numButton(num) {
             this.operationList[this.index] = this.operationList[this.index] + '' + num;
-            this.updateDisplay();
+            this.updateDisplay(this.operationList[this.index]);
             console.log(`Number is ${this.operationList[this.index]}`);
         }
 
         public operatorButton(operator) {
             this.index++
             this.operationList[this.index] = operator;
-            console.log(`Operator is ${this.operationList[this.index]}`);
-            this.updateDisplay();
+            this.updateDisplay(this.operationList[this.index]);
+            console.log(`Operator is ${this.operationList[this.index]}`)
 
             this.index++
             this.operationList[this.index] = '';
         }
 
-        public updateDisplay() {
-            if (display) {
+        public updateDisplay(display) {
                 this.display = display;
-            } else {
-                this.display = parseFloat(this.operationList[this.index]);
-            }
         }
 
         public calculate() {
-            console.log('next test6');
-            console.log(this.operationList[0]);
-            console.log(this.operationList[1]);
-            console.log(this.operationList[2]);
-
             if (this.operationList[1] == '+') {
-                this.result = parseInt(this.operationList[0]) + parseInt(this.operationList[2]);
+                this.result = (parseInt(this.operationList[0]) + parseInt(this.operationList[2])).toString();
             } else if (this.operationList[1] == '-') {
-                this.result = parseInt(this.operationList[0]) - parseInt(this.operationList[2]);
+                this.result = (parseInt(this.operationList[0]) - parseInt(this.operationList[2])).toString();
             } else if (this.operationList[1] == 'x') {
-                this.result = parseInt(this.operationList[0]) * parseInt(this.operationList[2]);
+                this.result = (parseInt(this.operationList[0]) * parseInt(this.operationList[2])).toString();
+            } else if (this.operationList[1] == '/') {
+                if (this.operationList[2] === '0') {
+                    this.result = 'To infinity and beyond';
+                } else {
+                    this.result = (parseInt(this.operationList[0]) / parseInt(this.operationList[2])).toString();
+                }
             }
-            // else if (this.operationList[1] == '/') {
-            //    if (operationList[2] == 0) {
-            //        this.result = 'To infinity and beyond';
-            //    } else {
-            //        this.result = parseInt(this.operationList[0]) / parseInt(this.operationList[2]);
-            //    }
-            //}
-            console.log(this.result);
-            //this.operationList[this.index] = this.result;
+            console.log(`Result is ${this.result}`);
             this.updateDisplay(this.result);
+            this.operationList[0] = this.result;
+            this.index = 0;
         }
+
+        public clearScreen() {
+            for (this.i = 0; this.i <= 2; this.i++) {
+                this.operationList[this.i] = '';
+                this.updateDisplay('');
+            }
+            console.log(`Clear`);
+        }
+
     }
-    angular.module('CalculatorHomework').controller('CalculatorController',CalculatorController)
+    angular.module('CalculatorHomework').controller('CalculatorController', CalculatorController);
 }
