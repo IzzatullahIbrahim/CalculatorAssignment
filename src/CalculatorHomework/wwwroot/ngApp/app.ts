@@ -9,6 +9,7 @@ namespace CalculatorHomework {
         public i = 0;
 
         public numButton(num) {
+            console.log('asdas');
             this.operationList[this.index] = this.operationList[this.index] + '' + num;
             this.updateDisplay(this.operationList[this.index]);
             console.log(`Number is ${this.operationList[this.index]}`);
